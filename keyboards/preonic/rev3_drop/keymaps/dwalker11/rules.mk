@@ -1,0 +1,4 @@
+SRC += muse.c
+TAP_DANCE_ENABLE = yes
+LAYER_LOCK_ENABLE = yes
+CAPS_WORD_ENABLE = yes
