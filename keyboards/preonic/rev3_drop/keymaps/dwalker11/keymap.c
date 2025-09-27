@@ -49,9 +49,9 @@ enum preonic_keycodes {
 
 // Right-hand home row mods
 #define GUI_J RGUI_T(KC_J)
-#define CTL_K RCTL_T(KC_K)
+#define SFT_K RSFT_T(KC_K)
 #define ALT_L LALT_T(KC_L)
-#define SFT_SCLN RSFT_T(KC_SCLN)
+#define CTL_SCLN RCTL_T(KC_SCLN)
 
 typedef enum {
     TD_NONE,
@@ -90,11 +90,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid( \
-  KC_GRV,           KC_1,        KC_2,    KC_3,    KC_4,         KC_5,   KC_6,   KC_7,       KC_8,    KC_9,    KC_0,    KC_BSPC,        \
-  KC_TAB,           KC_Q,        KC_W,    KC_E,    KC_R,         KC_T,   KC_Y,   KC_U,       KC_I,    KC_O,    KC_P,    KC_DEL,         \
-  CTL_T(KC_ESC),  LT(NAV, KC_A), KC_S,    KC_D, LT(RAISE, KC_F), KC_G,   KC_H,   GUI_J,      CTL_K,   ALT_L,   KC_SCLN, KC_QUOT,        \
-  KC_LSFT,          KC_Z,        KC_X,    KC_C,    KC_V,         KC_B,   KC_N,   KC_M,       KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_ENT), \
-  OSL(6),           OS_LCTL,     OS_LGUI, OS_LALT, OSL(LOWER),   KC_SPC, KC_SPC, OSL(RAISE), KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT         \
+  KC_GRV,           KC_1,        KC_2,    KC_3,    KC_4,         KC_5,   KC_6,   KC_7,       KC_8,    KC_9,    KC_0,     KC_BSPC,        \
+  KC_TAB,           KC_Q,        KC_W,    KC_E,    KC_R,         KC_T,   KC_Y,   KC_U,       KC_I,    KC_O,    KC_P,     KC_DEL,         \
+  CTL_T(KC_ESC),  LT(NAV, KC_A), KC_S,    KC_D, LT(RAISE, KC_F), KC_G,   KC_H,   GUI_J,      SFT_K,   ALT_L,   CTL_SCLN, KC_QUOT,        \
+  KC_LSFT,          KC_Z,        KC_X,    KC_C,    KC_V,         KC_B,   KC_N,   KC_M,       KC_COMM, KC_DOT,  KC_SLSH,  RSFT_T(KC_ENT), \
+  OSL(6),           OS_LCTL,     OS_LGUI, OS_LALT, MO(LOWER),    KC_SPC, KC_SPC, OSL(RAISE), KC_LEFT, KC_DOWN, KC_UP,    KC_RGHT         \
 ),
 
 /* Colemak
@@ -155,8 +155,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LOWER] = LAYOUT_preonic_grid( \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
   _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX, XXXXXXX, KC_7,    KC_8,    KC_9,    XXXXXXX, _______, \
-  _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX, XXXXXXX, KC_4,    KC_5,    KC_6,    KC_0,    _______, \
-  _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX, XXXXXXX, KC_1,    KC_2,    KC_3,    XXXXXXX, _______, \
+  _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX, KC_0,    KC_4,    KC_5,    KC_6,    QK_LLCK, _______, \
+  _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX, KC_DOT,  KC_1,    KC_2,    KC_3,    XXXXXXX, _______, \
   _______, _______, _______, _______, _______, _______, _______, MO(6),   KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT  \
 ),
 
@@ -199,7 +199,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, KC_F12,  \
   _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_LSFT, XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, QK_LLCK, _______, \
   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
-  _______, _______, _______, _______, KC_LGUI, _______, _______, KC_LCTL, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT  \
+  _______, _______, _______, KC_LGUI, KC_LCTL, _______, _______, KC_LALT, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT  \
 ),
 
 /* Adjust (Lower + Raise)
@@ -217,7 +217,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT_preonic_grid( \
   QK_BOOT, DB_TOGG, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, _______, _______, _______, _______, CG_NORM, CG_SWAP, _______, _______, _______, _______, _______, \
+  QK_RBT,  _______, _______, _______, _______, CG_NORM, CG_SWAP, _______, _______, _______, _______, _______, \
   _______, KC_SLEP, MU_NEXT, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK, DVORAK,  _______, _______, \
   _______, AU_PREV, AU_NEXT, MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
