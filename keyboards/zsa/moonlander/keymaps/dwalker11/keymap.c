@@ -55,12 +55,12 @@ enum custom_keycodes {
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [BASE] = LAYOUT(
-        KC_GRV,   KC_1,    KC_2,      KC_3,    KC_4,     KC_5,   XXXXXXX,        XXXXXXX,  KC_6,   KC_7,    KC_8,    KC_9,     KC_0,      KC_BSPC,
-        KC_TAB,   KC_Q,    KC_W,      KC_E,    KC_R,     KC_T,   KC_MEH,         KC_LGUI,  KC_Y,   KC_U,    KC_I,    KC_O,     KC_P,      KC_BSLS,
-        OS_LCTL,  NAV_A,   KC_S,      KC_D,    SYMB_F,   KC_G,   KC_HYPR,        KC_LCTL,  KC_H,   GUI_J,   SFT_K,   ALT_L,    CTL_SCLN,  KC_QUOT,
-        LSFT_CBR, KC_Z,    KC_X,      KC_C,    KC_V,     KC_B,                             KC_N,   KC_M,    KC_COMM, KC_DOT,   KC_SLSH,   RSFT_CBR,
-        CW_TOGG,  TG(NUM), OSL(MDIA), KC_LEFT, KC_RGHT,          CTL_ESC,        KC_ENT,           KC_DOWN, KC_UP,   TG(GAME), OSL(SYMB), KC_DEL,
-                                               KC_SPC,  OS_LSFT, OS_LGUI,        OS_LCTL, OS_LALT, KC_SPC
+        KC_GRV,   KC_1,    KC_2,      KC_3,    KC_4,     KC_5,   XXXXXXX,        XXXXXXX,   KC_6,   KC_7,    KC_8,    KC_9,     KC_0,      KC_BSPC,
+        KC_TAB,   KC_Q,    KC_W,      KC_E,    KC_R,     KC_T,   KC_MEH,         KC_HYPR,   KC_Y,   KC_U,    KC_I,    KC_O,     KC_P,      KC_BSLS,
+        OS_LCTL,  NAV_A,   KC_S,      KC_D,    SYMB_F,   KC_G,   TG(GAME),       OSL(MDIA), KC_H,   GUI_J,   SFT_K,   ALT_L,    CTL_SCLN,  KC_QUOT,
+        LSFT_CBR, KC_Z,    KC_X,      KC_C,    KC_V,     KC_B,                              KC_N,   KC_M,    KC_COMM, KC_DOT,   KC_SLSH,   RSFT_CBR,
+        CW_TOGG,  TG(NUM), XXXXXXX,   KC_LEFT, KC_RGHT,          CTL_ESC,        KC_ENT,            KC_DOWN, KC_UP,   XXXXXXX,  OSL(SYMB), KC_DEL,
+                                               KC_SPC,  OS_LSFT, OS_LGUI,        OS_LCTL,  OS_LALT, KC_SPC
     ),
 
     [NAV] = LAYOUT(
@@ -82,18 +82,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [NUM] = LAYOUT(
-        _______, _______, _______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, _______,
-        _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______, _______,           _______, _______, KC_7,    KC_8,    KC_9,    KC_ASTR, _______,
-        _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______, _______,           _______, _______, KC_4,    KC_5,    KC_6,    KC_PLUS, _______,
-        _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,                             _______, KC_1,    KC_2,    KC_3,    KC_BSLS, _______,
-        _______, _______, _______, _______, _______,          _______,           _______,          _______, KC_0,    KC_DOT,  KC_EQL,  _______,
+        _______, _______, _______, _______, _______, _______, _______,           _______, _______, KC_7,    KC_8,    KC_9,    KC_0,    KC_ASTR,
+        _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   _______, _______,           _______, _______, KC_4,    KC_5,    KC_6,    KC_DOT,  KC_PLUS,
+        _______, KC_F5,   KC_F6,   KC_F7,   KC_F8,   _______, _______,           _______, _______, KC_1,    KC_2,    KC_3,    _______, KC_BSLS,
+        _______, KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______,                             _______, _______, _______, _______, _______, KC_EQL,
+        _______, _______, _______, _______, _______,          _______,           _______,          _______, _______, _______, _______, _______,
                                             _______, _______, _______,           _______, _______, _______
     ),
 
     [MDIA] = LAYOUT(
-        _______, _______, _______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, QK_BOOT,
-        _______, RM_HUED, RM_SATD, RM_VALD, RM_PREV, _______, _______,           _______, _______, KC_VOLD, KC_VOLU, KC_MUTE, _______, QK_RBT,
-        _______, RM_HUEU, RM_SATU, RM_VALU, RM_NEXT, _______, _______,           _______, KC_MPRV, KC_MPLY, KC_MSTP, KC_MNXT, _______, _______,
+        QK_BOOT, _______, _______, _______, _______, _______, _______,           _______, _______, _______, _______, _______, _______, _______,
+        QK_RBT,  RM_HUED, RM_SATD, RM_VALD, RM_PREV, _______, _______,           _______, _______, KC_VOLD, KC_VOLU, KC_MUTE, _______, _______,
+        _______, RM_HUEU, RM_SATU, RM_VALU, RM_NEXT, _______, _______,           _______, _______, KC_MPRV, KC_MPLY, KC_MSTP, KC_MNXT, _______,
         _______, _______, _______, _______, RM_TOGG, _______,                             _______, AU_TOGG, MU_TOGG, MU_NEXT, _______, _______,
         _______, _______, _______, _______, _______,          _______,           _______,          _______, _______, _______, _______, _______,
                                             _______, _______, _______,           _______, _______, _______
