@@ -34,7 +34,8 @@ enum preonic_layers {
   _LOWER,
   _RAISE,
   _NAV,
-  _ADJUST
+  _ADJUST,
+  _GAME
 };
 
 enum preonic_keycodes {
@@ -44,7 +45,8 @@ enum preonic_keycodes {
   LOWER,
   RAISE,
   NAV,
-  BACKLIT
+  BACKLIT,
+  GAME
 };
 
 // Escape Control
@@ -202,11 +204,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_NAV] = LAYOUT_preonic_grid( \
-  _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  \
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, KC_F12,  \
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_LSFT, XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, QK_LLCK, _______, \
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, \
-  _______, _______, _______, KC_LGUI, KC_LCTL, _______, _______, KC_LALT, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT  \
+  _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,   \
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_HOME, KC_PGDN, KC_PGUP, KC_END,  XXXXXXX, KC_F12,   \
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, KC_LSFT, XXXXXXX, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, QK_LLCK, TG(GAME), \
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,  \
+  _______, _______, _______, KC_LGUI, KC_LCTL, _______, _______, KC_LALT, KC_MPRV, KC_VOLD, KC_VOLU, KC_MNXT   \
 ),
 
 /* Adjust (Lower + Raise)
@@ -228,8 +230,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _______, KC_SLEP, MU_NEXT, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK, DVORAK,  _______, _______, \
   _______, AU_PREV, AU_NEXT, MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  _______, _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
-)
+),
 
+/* Reset
+ * ,-----------------------------------------------------------------------------------.
+ * |   `  |   1  |   2  |   3  |   4  |   5  |   6  |   7  |   8  |   9  |   0  | Bksp |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  |   P  | Del  |
+ * |------+------+------+------+------+-------------+------+------+------+------+------|
+ * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
+ * |------+------+------+------+------+------|------+------+------+------+------+------|
+ * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+ * |------+------+------+------+------+------+------+------+------+------+------+------|
+ * |      | Ctrl | GUI  | Alt  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+ * `-----------------------------------------------------------------------------------'
+ */
+[_GAME] = LAYOUT_preonic_grid( \
+  _______,    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
+  _______,    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
+  KC_ESC,     KC_A,    _______, _______, KC_F,    _______, _______, KC_J,    KC_K,    KC_L,    KC_SCLN, _______, \
+  KC_LSFT,    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
+  TO(QWERTY), KC_LCTL, KC_LGUI, KC_LALT, _______, _______, _______, _______, _______, _______, _______, _______  \
+)
 
 };
 
